@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head<
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brightstar Talent</title>
+
+<!-- LUXURY FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- MENU BUTTON -->
+<div class="menu-button" onclick="openMenu()">
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+</div>
+
+<!-- FULLSCREEN MENU -->
+<div id="fullscreenMenu" class="fullscreen-menu">
+
+  <!-- CLOSE -->
+  <div class="close-menu" onclick="closeMenu()">
+  
+  </div>
+
+ <!-- SEARCH ICON -->
+<i class="fas fa-search search-icon" onclick="openSearch()"></i>
+
+<!-- SEARCH BOX -->
+<div class="search-box" id="searchBox">
+
+    <input 
+        type="text" 
+        id="talentSearch" 
+        placeholder="Search talent..."
+        onkeyup="searchTalent()"
+    >
+
+    <div id="searchResults"></div>
+
+</div>
+
+  <!-- MENU LINKS -->
+  <div class="menu-links">
+
+    <a href="index.html">Home</a>
+
+    <!-- DROPDOWN -->
+    <div class="menu-dropdown">
+
+      <div class="dropdown-toggle" onclick="toggleArtists()">
+
+        Artists
+
+        <span>⌄</span>
+
+      </div>
+
+      <div id="artistsDropdown" class="artists-dropdown">
+
+        <a href="johannesburg.html">
+          Johannesburg
+        </a>
+
+        <a href="capetown.html">
+          Cape Town
+        </a>
+
+      </div>
+
+    </div>
+
+    <a href="join.html">Join Us</a>
+
+    <a href="contactus.html">Contact Us</a>
+
+  </div>
+
+</div>
+
+<!-- DETAILS -->
+<section class="actor-details">
+
+  <h1>Anita Mihlali Matwa</h1>
+
+  <div class="actor-info">
+    <p><strong>Playing Age:</strong> 18-27</p>
+    <p><strong>Height:</strong> 158 Cm</p>
+    <p><strong>Languages:</strong> IsiXhosa, IsiZulu, Setswana, English</p>
+    <p><strong>Skills:</strong> Improvisation, Netball, Street dancing, 
+    Driving, Script writting</p>
+    <p><strong>Accents:</strong> South African</p>
+  </div>
+
+  <!-- DOWNLOAD CV -->
+  <a href="assets/Resumes/Anita_Mihlali_Matwa_Resume.pdf" class="download-btn" download>
+    View Resume
+  </a>
+
+</section>
+
+<!-- GALLERY -->
+<section class="actor-gallery">
+
+  <img src="assets/Images/Anita Matwa_Headshot 1.jpeg">
+  <img src="assets/Images/Anita Matwa_Headshot 2.jpeg">
+  <img src="assets/Images/Anita Matwa_FullBody2026.jpeg">
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+
+
+  <div class="footer-socials">
+
+    <a href="https://instagram.com/brightstar.talent"
+       target="_blank">
+
+       <i class="fab fa-instagram"></i>
+
+    </a>
+
+    <a href="https://facebook.com/Brightstar.talent"
+       target="_blank">
+
+       <i class="fab fa-facebook-f"></i>
+
+    </a>
+
+  </div>
+
+  <p class="footer-copy">
+    © 2026 Brightstar Talent. All rights reserved.
+  </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+});
+
+function openSearch() {
+
+    const box = document.getElementById("searchBox");
+
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+    }
+}
+
+function searchTalent() {
+
+    const input = document
+        .getElementById("talentSearch")
+        .value
+        .toLowerCase();
+
+    const results = document.getElementById("searchResults");
+
+    const talents = [
+        {
+            name: "Siphesihle Fezile Zulu",
+            link: "siphesihle.html"
+        },
+        {
+            name: "Lethabo Tibane",
+            link: "john.html"
+        },
+        {
+            name: "Anita Mihlali Matwa",
+            link: "amanda.html"
+        }
+    ];
+
+    results.innerHTML = "";
+
+    talents.forEach(talent => {
+
+        if (talent.name.toLowerCase().includes(input)) {
+
+            results.innerHTML += `
+                <a href="${talent.link}">
+                    ${talent.name}
+                </a>
+            `;
+        }
+
+    });
+
+}
+</script>
+
+</body>
+</html>
